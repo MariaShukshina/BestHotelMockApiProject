@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">BestHotelDemoProject</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hotel">Отель</string>
+    <string name="photo">Photo</string>
+    <string name="star_number">5</string>
+    <string name="rating_text">Превосходно!</string>
+    <string name="hotel_name">Название отеля</string>
+    <string name="address">Адрес</string>
+    <string name="price_from">от %d</string>
+    <string name="price_details">за тур с перелетом</string>
+    <string name="about_hotel">Об отеле</string>
+    <string name="peculiarity">3-я линия</string>
+    <string name="peculiarityTwo">Платный Wi-Fi в фойе</string>
+    <string name="peculiarityThree">30 км до аэропорта</string>
+    <string name="peculiarityFour">1 км до пляжа</string>
+    <string name="hotel_description">Отель VIP-класса с собственными гольф полями. Высокий уровнь сервиса. Рекомендуем для респектабельного отдыха. Отель принимает гостей от 18 лет!</string>
+    <string name="facilities">Удобства</string>
+    <string name="included">Что включено</string>
+    <string name="notIncluded">Что не включено</string>
+    <string name="necessities">Самое необходимое</string>
+    <string name="go_to_booking">К выбору номера</string>
 </resources>

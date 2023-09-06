@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.HotelFragment">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="-180dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:titleTextColor="@color/black">
+
+                <TextView
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/sfprodisplaymedium"
+                    android:text="@string/hotel"
+                    android:textSize="16sp" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="6dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+                <com.smarteist.autoimageslider.SliderView
+                    android:id="@+id/imageSlider"
+                    android:layout_width="380dp"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    app:sliderAnimationDuration="600"
+                    app:sliderIndicatorAnimationDuration="600"
+                    app:sliderIndicatorGravity="center_horizontal|bottom"
+                    app:sliderIndicatorOrientation="horizontal"
+                    app:sliderIndicatorPadding="3dp"
+                    app:sliderIndicatorRadius="2dp"
+                    app:sliderIndicatorSelectedColor="#5A5A5A"
+                    app:sliderIndicatorUnselectedColor="#FFF"
+                    app:sliderScrollTimeInSec="1" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/ratingLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="12dp"
+                android:background="#33FFC700"
+                android:paddingBottom="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/cardView">
+
+                <ImageView
+                    android:id="@+id/starIcon"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="6dp"
+                    android:src="@drawable/star_icon"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/starNumberTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/sfprodisplayregular"
+                    android:text="@string/star_number"
+                    android:textColor="#FFA800"
+                    app:layout_constraintBottom_toBottomOf="@id/starIcon"
+                    app:layout_constraintStart_toEndOf="@id/starIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/ratingTextView"
+                    android:layout_width="109dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/sfprodisplayregular"
+                    android:paddingEnd="16dp"
+                    android:text="@string/rating_text"
+                    android:textColor="#FFA800"
+                    app:layout_constraintBottom_toBottomOf="@id/starIcon"
+                    app:layout_constraintStart_toEndOf="@id/starNumberTextView"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:id="@+id/hotelNameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:fontFamily="@font/sfprodisplaybold"
+                android:text="@string/hotel_name"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/ratingLayout"
+                app:layout_constraintTop_toBottomOf="@id/ratingLayout" />
+
+            <TextView
+                android:id="@+id/addressTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/sfprodisplaybold"
+                android:text="@string/address"
+                android:textColor="#0D72FF"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/hotelNameTextView"
+                app:layout_constraintTop_toBottomOf="@id/hotelNameTextView" />
+
+            <LinearLayout
+                android:id="@+id/priceLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:orientation="horizontal"
+                app:layout_constraintTop_toBottomOf="@id/addressTextView">
+
+                <TextView
+                    android:id="@+id/priceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/sfprodisplaybold"
+                    android:text="@string/price_from"
+                    android:textSize="32sp" />
+
+                <TextView
+                    android:id="@+id/priceDetailsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:fontFamily="@font/sfprodisplayregular"
+                    android:text="@string/price_details"
+                    android:textColor="#828796"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/aboutHotelTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:fontFamily="@font/sfprodisplaybold"
+                android:text="@string/about_hotel"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="@id/priceLayout"
+                app:layout_constraintTop_toBottomOf="@id/priceLayout" />
+
+
+            <TextView
+                android:id="@+id/peculiarityTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/sfprodisplaybold"
+                android:text="@string/peculiarity"
+                android:textColor="#828796"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@id/aboutHotelTextView"
+                app:layout_constraintTop_toBottomOf="@id/aboutHotelTextView" />
+
+            <TextView
+                android:id="@+id/peculiarityTwoTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/sfprodisplaybold"
+                android:text="@string/peculiarityTwo"
+                android:textColor="#828796"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@id/peculiarityTextView"
+                app:layout_constraintTop_toBottomOf="@id/aboutHotelTextView" />
+
+            <TextView
+                android:id="@+id/peculiarityThreeTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/sfprodisplaybold"
+                android:text="@string/peculiarityThree"
+                android:textColor="#828796"
+                android:textSize="17sp"
+                app:layout_constraintStart_toStartOf="@id/aboutHotelTextView"
+                app:layout_constraintTop_toBottomOf="@id/peculiarityTextView" />
+
+            <TextView
+                android:id="@+id/peculiarityFourTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/sfprodisplaybold"
+                android:text="@string/peculiarityFour"
+                android:textColor="#828796"
+                android:textSize="17sp"
+                app:layout_constraintStart_toEndOf="@id/peculiarityThreeTextView"
+                app:layout_constraintTop_toBottomOf="@id/peculiarityTextView" />
+
+            <TextView
+                android:id="@+id/descriptionTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="none"
+                android:fontFamily="@font/sfprodisplayregular"
+                android:singleLine="false"
+                android:text="@string/hotel_description"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/aboutHotelTextView"
+                app:layout_constraintTop_toBottomOf="@id/peculiarityFourTextView" />
+
+
+            <ImageView
+                android:id="@+id/emojiHappy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="24dp"
+                android:src="@drawable/emoji_happy"
+                app:layout_constraintStart_toStartOf="@id/descriptionTextView"
+                app:layout_constraintTop_toBottomOf="@id/descriptionTextView" />
+
+            <TextView
+                android:id="@+id/facilitiesTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="none"
+                android:fontFamily="@font/sfprodisplayregular"
+                android:singleLine="false"
+                android:text="@string/facilities"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/emojiHappy"
+                app:layout_constraintTop_toBottomOf="@id/descriptionTextView" />
+
+            <TextView
+                android:id="@+id/facilitiesNecessary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="none"
+                android:fontFamily="@font/sfprodisplayregular"
+                android:singleLine="false"
+                android:text="@string/necessities"
+                android:textColor="#828796"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/facilitiesTextView"
+                app:layout_constraintTop_toBottomOf="@id/facilitiesTextView" />
+
+
+            <ImageView
+                android:id="@+id/forwardIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/forward_arrow"
+                app:layout_constraintBottom_toBottomOf="@id/facilitiesTextView"
+                app:layout_constraintEnd_toEndOf="@id/cardView"
+                app:layout_constraintTop_toBottomOf="@id/descriptionTextView" />
+
+
+            <ImageView
+                android:id="@+id/emojiIncluded"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:src="@drawable/tick_square"
+                app:layout_constraintStart_toStartOf="@id/emojiHappy"
+                app:layout_constraintTop_toBottomOf="@id/emojiHappy" />
+
+            <TextView
+                android:id="@+id/includedTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="none"
+                android:fontFamily="@font/sfprodisplayregular"
+                android:singleLine="false"
+                android:text="@string/included"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/emojiIncluded"
+                app:layout_constraintTop_toBottomOf="@id/emojiHappy" />
+
+
+            <TextView
+                android:id="@+id/includedNecessary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="none"
+                android:fontFamily="@font/sfprodisplayregular"
+                android:singleLine="false"
+                android:text="@string/necessities"
+                android:textColor="#828796"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/includedTextView"
+                app:layout_constraintTop_toBottomOf="@id/includedTextView" />
+
+
+            <ImageView
+                android:id="@+id/forwardIconTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/forward_arrow"
+                app:layout_constraintBottom_toBottomOf="@id/includedTextView"
+                app:layout_constraintEnd_toEndOf="@id/cardView"
+                app:layout_constraintTop_toBottomOf="@id/emojiHappy" />
+
+
+            <ImageView
+                android:id="@+id/emojiNotIncluded"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:src="@drawable/close_square"
+                app:layout_constraintStart_toStartOf="@id/emojiIncluded"
+                app:layout_constraintTop_toBottomOf="@id/emojiIncluded" />
+
+            <TextView
+                android:id="@+id/notIncludedTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginEnd="16dp"
+                android:ellipsize="none"
+                android:fontFamily="@font/sfprodisplayregular"
+                android:singleLine="false"
+                android:text="@string/notIncluded"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@id/emojiNotIncluded"
+                app:layout_constraintTop_toBottomOf="@id/emojiIncluded" />
+
+            <TextView
+                android:id="@+id/notIncludedNecessary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="16dp"
+                android:paddingBottom="36dp"
+                android:ellipsize="none"
+                android:fontFamily="@font/sfprodisplayregular"
+                android:singleLine="false"
+                android:text="@string/necessities"
+                android:textColor="#828796"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="@id/notIncludedTextView"
+                app:layout_constraintTop_toBottomOf="@id/notIncludedTextView" />
+
+
+            <ImageView
+                android:id="@+id/forwardIconThree"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/forward_arrow"
+                app:layout_constraintBottom_toBottomOf="@id/notIncludedTextView"
+                app:layout_constraintEnd_toEndOf="@id/cardView"
+                app:layout_constraintTop_toBottomOf="@id/emojiIncluded" />
+
+            <Button
+                android:id="@+id/goToBookingButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/go_to_booking"
+                android:backgroundTint="#0D72FF"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintTop_toBottomOf="@id/notIncludedNecessary"
+                app:layout_constraintStart_toStartOf="parent"/>
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                app:layout_constraintTop_toBottomOf="@id/goToBookingButton"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
