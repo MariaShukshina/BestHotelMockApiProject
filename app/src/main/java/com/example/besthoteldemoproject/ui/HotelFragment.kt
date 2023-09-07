@@ -19,10 +19,6 @@ class HotelFragment : Fragment() {
     private lateinit var binding: FragmentHotelBinding
     private val viewModel by viewModel<HotelFragmentViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val navController = findNavController()
@@ -32,11 +28,11 @@ class HotelFragment : Fragment() {
         val sliderView = binding.imageSlider
         val adapter = SliderAdapter()
         observeHotelData(adapter)
-        /*adapter.addItem("https://www.atorus.ru/sites/default/files/upload/image/News/56149/Club_Priv%C3%A9_by_Belek_Club_House.jpg")
-        adapter.addItem("https://deluxe.voyage/useruploads/articles/The_Makadi_Spa_Hotel_02.jpg")
-        adapter.addItem("https://deluxe.voyage/useruploads/articles/article_1eb0a64d00.jpg")*/
         sliderView.setSliderAdapter(adapter)
 
+        binding.goToBookingButton.setOnClickListener {
+            navController.navigate(R.id.action_hotelFragment_to_roomFragment)
+        }
     }
 
     override fun onCreateView(

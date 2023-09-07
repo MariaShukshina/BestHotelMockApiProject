@@ -21,4 +21,14 @@
     <string name="notIncluded">Что не включено</string>
     <string name="necessities">Самое необходимое</string>
     <string name="go_to_booking">К выбору номера</string>
+    <string name="hello_room_fragment">Room Fragment</string>
+    <string name="rooms">Название отеля</string>
+    <string name="room_name">Стандартный номер с видом на бассейн</string>
+    <string name="roomPeculiarity">Все включено</string>
+    <string name="roomPeculiarityTwo">Кондиционер</string>
+    <string name="roomPeculiarityThree">Собственный бассейн</string>
+    <string name="roomDetails">Подробнее о номере</string>
+    <string name="room_price">%d \u20BD</string>
+    <string name="room_price_details">за 7 ночей с перелетом</string>
+    <string name="bookRoom">Выбрать номер</string>
 </resources>

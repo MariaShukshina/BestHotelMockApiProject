@@ -41,6 +41,7 @@ android {
 
 dependencies {
 
+    implementation("androidx.core:core:1.12.0")
     val navVersion = "2.7.1"
     val lifecycleVersion = "2.6.1"
 
