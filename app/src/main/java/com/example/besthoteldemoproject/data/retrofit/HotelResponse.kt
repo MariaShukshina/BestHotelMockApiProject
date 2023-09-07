@@ -1,4 +1,6 @@
-package com.example.besthoteldemoproject
+package com.example.besthoteldemoproject.data.retrofit
+
+import com.example.besthoteldemoproject.data.retrofit.AboutTheHotel
 
 data class HotelResponse(
     val about_the_hotel: AboutTheHotel,

@@ -1,4 +1,4 @@
-package com.example.besthoteldemoproject
+package com.example.besthoteldemoproject.data.retrofit
 
 data class AboutTheHotel(
     val description: String,
