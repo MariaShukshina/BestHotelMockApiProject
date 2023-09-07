@@ -9,6 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.besthoteldemoproject.R
 import com.example.besthoteldemoproject.databinding.FragmentRoomBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -32,6 +33,9 @@ class RoomFragment : Fragment() {
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
 
         val adapter = RoomsRecyclerViewAdapter(requireActivity())
+        adapter.buttonClickListener = {
+            navController.navigate(R.id.action_roomFragment_to_bookingFragment)
+        }
         binding.roomsRecyclerView.layoutManager = LinearLayoutManager(requireContext(),
             LinearLayoutManager.VERTICAL, false)
         binding.roomsRecyclerView.adapter = adapter
