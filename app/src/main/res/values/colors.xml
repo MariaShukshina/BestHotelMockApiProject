@@ -3,4 +3,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="my_status_bar_color">#FFFFFFFF</color>
+    <color name="email_invalid">#15EB5757</color>
+    <color name="valid_input">#F6F6F9</color>
 </resources>

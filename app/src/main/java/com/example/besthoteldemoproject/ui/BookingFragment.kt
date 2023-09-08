@@ -5,6 +5,7 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -35,6 +36,17 @@ class BookingFragment : Fragment() {
 
         observeBookingData()
 
+        binding.emailEditText.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+            val invalidColor = ContextCompat.getColor(requireContext(), R.color.email_invalid)
+            val validColor = ContextCompat.getColor(requireContext(), R.color.valid_input)
+            if (!hasFocus) {
+                if (!isValidEmail(binding.emailEditText.text)) {
+                    binding.emailEditText.setBackgroundColor(invalidColor)
+                } else {
+                    binding.emailEditText.setBackgroundColor(validColor)
+                }
+            }
+        }
     }
 
     private fun observeBookingData() {
