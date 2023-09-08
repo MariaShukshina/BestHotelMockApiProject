@@ -32,4 +32,15 @@
     <string name="room_price_details">за 7 ночей с перелетом</string>
     <string name="bookRoom">Выбрать номер</string>
     <string name="booking">Бронирование</string>
+    <string name="flightFrom">Вылет из</string>
+    <string name="city">Санкт-Петербург</string>
+    <string name="countryCity">Страна, город</string>
+    <string name="selectedCountryCity">Египет, Хургада</string>
+    <string name="nightsNumber">Кол-во ночей</string>
+    <string name="selectednightsNumber">7 ночей</string>
+    <string name="room">Номер</string>
+    <string name="dates">Даты</string>
+    <string name="selectedDates">%s - %s</string>
+    <string name="food">Питание</string>
+    <string name="foodInfo">Все включено</string>
 </resources>
