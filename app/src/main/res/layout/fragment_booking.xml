@@ -82,8 +82,8 @@
 
                         <TextView
                             android:id="@+id/ratingTextView"
-                            android:layout_width="109dp"
-                            android:layout_height="16dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:layout_marginStart="4dp"
                             android:layout_marginTop="6dp"
                             android:fontFamily="@font/sfprodisplayregular"
@@ -242,13 +242,13 @@
                             android:textSize="16sp" />
 
                         <TextView
-                            android:id="@+id/selectednightsNumberTextView"
+                            android:id="@+id/selectedNightsNumberTextView"
                             android:layout_width="200dp"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="16dp"
                             android:layout_marginTop="16dp"
                             android:fontFamily="@font/sfprodisplayregular"
-                            android:text="@string/selectednightsNumber"
+                            android:text="@string/selectedNightsNumber"
                             android:textColor="@color/black"
                             android:textSize="16sp" />
 
@@ -352,7 +352,85 @@
                 android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@id/bookingInfoCardView">
 
-                
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/customerInfoTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:fontFamily="@font/sfprodisplaybold"
+                        android:text="@string/customer_info"
+                        android:textSize="20sp"
+                        app:layout_constraintStart_toStartOf="@id/ratingLayout"
+                        app:layout_constraintTop_toBottomOf="@id/ratingLayout" />
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="12dp"
+                        app:boxCornerRadiusBottomEnd="8dp"
+                        app:boxCornerRadiusBottomStart="8dp"
+                        app:boxCornerRadiusTopEnd="8dp"
+                        app:boxCornerRadiusTopStart="8dp"
+                        app:hintTextColor="#A9ABB7">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/etPhoneNumber"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/phone_number"
+                            android:fontFamily="@font/sfprodisplayregular"
+                            android:inputType="phone"
+                            android:text="@string/number_mask"
+                            android:background="#F6F6F9"
+                            android:textColorHint="#A9ABB7"
+                            android:textCursorDrawable="@null"
+                            android:textSize="16sp"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_marginBottom="12dp"
+                        app:boxCornerRadiusBottomEnd="8dp"
+                        app:boxCornerRadiusBottomStart="8dp"
+                        app:boxCornerRadiusTopEnd="8dp"
+                        android:backgroundTint="#F6F6F9"
+                        app:boxCornerRadiusTopStart="8dp"
+                        app:hintTextColor="#A9ABB7">
+
+                        <androidx.appcompat.widget.AppCompatEditText
+                            android:id="@+id/emailEditText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/sfprodisplayregular"
+                            android:hint="@string/email"
+                            android:background="#F6F6F9"
+                            android:inputType="textEmailAddress"
+                            android:textColorHint="#A9ABB7"
+                            android:textCursorDrawable="@null"
+                            android:textSize="16sp"/>
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/sfprodisplayregular"
+                        android:textColor="#828796"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginEnd="12dp"
+                        android:text="@string/dataNotTransferred"
+                        android:layout_marginBottom="24dp"
+                        />
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 

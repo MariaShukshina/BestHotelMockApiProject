@@ -37,10 +37,15 @@
     <string name="countryCity">Страна, город</string>
     <string name="selectedCountryCity">Египет, Хургада</string>
     <string name="nightsNumber">Кол-во ночей</string>
-    <string name="selectednightsNumber">7 ночей</string>
+    <string name="selectedNightsNumber">%d ночей</string>
     <string name="room">Номер</string>
     <string name="dates">Даты</string>
     <string name="selectedDates">%s - %s</string>
     <string name="food">Питание</string>
     <string name="foodInfo">Все включено</string>
+    <string name="customer_info">Информация о покупателе</string>
+    <string name="phone_number">Номер телефона</string>
+    <string name="email">Почта</string>
+    <string name="number_mask">+7 (***) ***-**-**\n</string>
+    <string name="dataNotTransferred">Эти данные никому не передаются. После оплаты мы вышлем чек на указанный вами номер и почту.</string>
 </resources>

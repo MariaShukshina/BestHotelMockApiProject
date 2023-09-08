@@ -3,6 +3,7 @@ package com.example.besthoteldemoproject
 import com.example.besthoteldemoproject.data.repositories.HotelApiRepositoryImpl
 import com.example.besthoteldemoproject.data.retrofit.HotelApiService
 import com.example.besthoteldemoproject.domain.repositories.HotelApiRepository
+import com.example.besthoteldemoproject.ui.BookingFragmentViewModel
 import com.example.besthoteldemoproject.ui.HotelFragmentViewModel
 import com.example.besthoteldemoproject.ui.RoomFragmentViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -26,6 +27,8 @@ val appModule = module {
     viewModel { HotelFragmentViewModel(get()) }
 
     viewModel { RoomFragmentViewModel(get()) }
+
+    viewModel { BookingFragmentViewModel(get()) }
 
     single {
         Retrofit.Builder()
