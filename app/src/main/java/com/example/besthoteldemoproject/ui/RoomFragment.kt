@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -28,8 +30,12 @@ class RoomFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val hotelName = requireArguments().getString("hotel_name")
+
         val navController = findNavController()
         val appBarConfiguration = AppBarConfiguration(navController.graph)
+        binding.toolbar.findViewById<TextView>(R.id.toolbar_title).text = hotelName
         binding.toolbar.setupWithNavController(navController, appBarConfiguration)
 
         val adapter = RoomsRecyclerViewAdapter(requireActivity())

@@ -31,4 +31,5 @@
     <string name="room_price">%d \u20BD</string>
     <string name="room_price_details">за 7 ночей с перелетом</string>
     <string name="bookRoom">Выбрать номер</string>
+    <string name="booking">Бронирование</string>
 </resources>

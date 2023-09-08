@@ -18,6 +18,7 @@ class HotelFragment : Fragment() {
 
     private lateinit var binding: FragmentHotelBinding
     private val viewModel by viewModel<HotelFragmentViewModel>()
+    private var hotelName = ""
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -31,7 +32,13 @@ class HotelFragment : Fragment() {
         sliderView.setSliderAdapter(adapter)
 
         binding.goToBookingButton.setOnClickListener {
-            navController.navigate(R.id.action_hotelFragment_to_roomFragment)
+            val bundle = Bundle()
+            bundle.putString("hotel_name", hotelName)
+            navController.navigate(R.id.action_hotelFragment_to_roomFragment, bundle)
+        }
+
+        binding.addressTextView.setOnClickListener {
+            TODO ("eg. Implement Google Maps")
         }
     }
 
@@ -60,7 +67,7 @@ class HotelFragment : Fragment() {
                 binding.peculiarityThreeTextView.text = it.about_the_hotel.peculiarities[2]
                 binding.peculiarityFourTextView.text = it.about_the_hotel.peculiarities[3]
                 binding.descriptionTextView.text = it.about_the_hotel.description
-
+                hotelName = it.name
             }
         }
     }

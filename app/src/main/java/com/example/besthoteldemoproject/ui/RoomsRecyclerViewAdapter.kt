@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.besthoteldemoproject.INVALID_MOCK_URL
 import com.example.besthoteldemoproject.R
+import com.example.besthoteldemoproject.VALID_URL
 import com.example.besthoteldemoproject.data.retrofit.Room
 import com.example.besthoteldemoproject.databinding.RoomsLayoutItemBinding
 import java.util.Locale
@@ -37,6 +38,8 @@ class RoomsRecyclerViewAdapter(private val context: Context): RecyclerView.Adapt
         for (i in room.image_urls) {
             if (i != INVALID_MOCK_URL) {
                 adapter.addItem(i)
+            } else {
+                adapter.addItem(VALID_URL)
             }
         }
         sliderView.setSliderAdapter(adapter)
