@@ -1,5 +1,6 @@
 package com.example.besthoteldemoproject.ui
 
+import android.animation.LayoutTransition
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
@@ -115,8 +116,17 @@ class BookingFragment : Fragment() {
 
         val scrollView = binding.bookingScrollView
         var currentScrollY = 0
+        binding.firstTouristInfoLayout.layoutTransition.enableTransitionType(
+            LayoutTransition.CHANGING
+        )
+
+        binding.secondTouristInfoLayout.layoutTransition.enableTransitionType(
+            LayoutTransition.CHANGING
+        )
 
         binding.firstTouristArrowUp.setOnClickListener {
+
+            TransitionManager.beginDelayedTransition(binding.firstTouristInfoLayout, AutoTransition())
 
             currentScrollY = scrollView.scrollY
 
@@ -127,10 +137,35 @@ class BookingFragment : Fragment() {
         }
         binding.firstTouristArrowDown.setOnClickListener {
 
+            TransitionManager.beginDelayedTransition(binding.firstTouristInfoLayout, AutoTransition())
 
             binding.firstTouristInfoLayout.visibility = View.VISIBLE
             binding.firstTouristArrowDown.visibility = View.GONE
             binding.firstTouristArrowUp.visibility = View.VISIBLE
+
+            scrollView.post {
+                scrollView.scrollTo(0, currentScrollY)
+            }
+        }
+
+        binding.secondTouristArrowUp.setOnClickListener {
+
+            TransitionManager.beginDelayedTransition(binding.secondTouristInfoLayout, AutoTransition())
+
+            currentScrollY = scrollView.scrollY
+
+            binding.secondTouristInfoLayout.visibility = View.GONE
+            binding.secondTouristArrowDown.visibility = View.VISIBLE
+            binding.secondTouristArrowUp.visibility = View.GONE
+
+        }
+        binding.secondTouristArrowDown.setOnClickListener {
+
+            TransitionManager.beginDelayedTransition(binding.secondTouristInfoLayout, AutoTransition())
+
+            binding.secondTouristInfoLayout.visibility = View.VISIBLE
+            binding.secondTouristArrowDown.visibility = View.GONE
+            binding.secondTouristArrowUp.visibility = View.VISIBLE
 
             scrollView.post {
                 scrollView.scrollTo(0, currentScrollY)

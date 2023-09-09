@@ -7,4 +7,5 @@
     <color name="valid_input">#F6F6F9</color>
     <color name="edit_text_background">#F6F6F9</color>
     <color name="edit_text_background_dark">#2a2727</color>
+    <color name="arrow_background">#100D72FF</color>
 </resources>
