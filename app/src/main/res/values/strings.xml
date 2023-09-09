@@ -46,6 +46,12 @@
     <string name="customer_info">Информация о покупателе</string>
     <string name="phone_number">Номер телефона</string>
     <string name="email">Почта</string>
-    <string name="number_mask">+7 (***) ***-**-**\n</string>
+    <string name="number_mask">+7 (***) ***-**-**</string>
     <string name="dataNotTransferred">Эти данные никому не передаются. После оплаты мы вышлем чек на указанный вами номер и почту.</string>
+    <string name="first_tourist">Первый турист</string>
+    <string name="tourist_name">Имя</string>
+    <string name="tourist_surname">Фамилия</string>
+    <string name="tourist_birthday">Дата рождения</string>
+    <string name="tourist_passport_number">Номер загранпаспорта</string>
+    <string name="tourist_passport_valid_till">Срок действия загранпаспорта</string>
 </resources>

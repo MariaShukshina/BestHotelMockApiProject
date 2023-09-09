@@ -3,5 +3,7 @@
     <style name="Base.Theme.BestHotelDemoProject" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
         <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorSurfaceContainer">@color/edit_text_background_dark</item>
+
     </style>
 </resources>
