@@ -1,12 +1,9 @@
 package com.example.besthoteldemoproject.ui
 
-import android.animation.LayoutTransition
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextUtils
 import android.text.TextWatcher
-import android.transition.AutoTransition
-import android.transition.TransitionManager
 import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View

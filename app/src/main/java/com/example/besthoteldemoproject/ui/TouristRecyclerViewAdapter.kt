@@ -1,9 +1,12 @@
 package com.example.besthoteldemoproject.ui
 
+import android.animation.LayoutTransition
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import androidx.transition.AutoTransition
+import androidx.transition.TransitionManager
 import com.example.besthoteldemoproject.databinding.TouristRecyclerviewItemBinding
 
 class TouristRecyclerViewAdapter: RecyclerView.Adapter<TouristRecyclerViewAdapter.ViewHolder>() {
@@ -31,12 +34,21 @@ class TouristRecyclerViewAdapter: RecyclerView.Adapter<TouristRecyclerViewAdapte
         } else {
             holder.touristNumber.text = "${position + 1}-й турист"
         }
+
+        holder.touristInfoLayout.layoutTransition.enableTransitionType(
+            LayoutTransition.CHANGING
+        )
+
         holder.arrowUp.setOnClickListener {
+            TransitionManager.beginDelayedTransition(holder.touristInfoLayout, AutoTransition())
+
             holder.touristInfoLayout.visibility = View.GONE
             holder.arrowDown.visibility = View.VISIBLE
             holder.arrowUp.visibility = View.GONE
         }
         holder.arrowDown.setOnClickListener {
+            TransitionManager.beginDelayedTransition(holder.touristInfoLayout, AutoTransition())
+
             holder.touristInfoLayout.visibility = View.VISIBLE
             holder.arrowDown.visibility = View.GONE
             holder.arrowUp.visibility = View.VISIBLE
