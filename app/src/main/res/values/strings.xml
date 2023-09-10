@@ -55,4 +55,6 @@
     <string name="tourist_passport_number">Номер загранпаспорта</string>
     <string name="tourist_passport_valid_till">Срок действия загранпаспорта</string>
     <string name="second_tourist">Второй турист</string>
+    <string name="next_tourist">Следующий турист</string>
+    <string name="add_tourist">Добавить туриста</string>
 </resources>
