@@ -347,6 +347,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
+                app:cardCornerRadius="16dp"
                 app:layout_constraintTop_toBottomOf="@id/bookingInfoCardView">
 
                 <LinearLayout
@@ -628,6 +629,7 @@
                                 android:hint="@string/tourist_passport_valid_till"
                                 android:fontFamily="@font/sfprodisplayregular"
                                 android:inputType="date"
+                                android:layout_marginBottom="12dp"
                                 android:background="#F6F6F9"
                                 android:textColorHint="#A9ABB7"
                                 android:textCursorDrawable="@null"
@@ -646,6 +648,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginTop="8dp"
+                app:cardCornerRadius="16dp"
                 app:layout_constraintTop_toBottomOf="@id/firstTouristCardView"
                 app:layout_constraintStart_toStartOf="parent">
 
@@ -834,6 +837,7 @@
                                 android:fontFamily="@font/sfprodisplayregular"
                                 android:inputType="date"
                                 android:background="#F6F6F9"
+                                android:layout_marginBottom="12dp"
                                 android:textColorHint="#A9ABB7"
                                 android:textCursorDrawable="@null"
                                 android:textSize="16sp"/>
@@ -859,6 +863,7 @@
                 android:id="@+id/addTouristCardView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
                 app:layout_constraintTop_toBottomOf="@id/nextTouristRecyclerView"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="8dp" >
@@ -902,6 +907,165 @@
                     </LinearLayout>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/paymentCardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintTop_toBottomOf="@id/addTouristCardView"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tourPriceLabelTextView"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/sfprodisplayregular"
+                            android:text="@string/tour"
+                            android:textColor="#828796"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tourPriceTextView"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:paddingEnd="12dp"
+                            android:textAlignment="textEnd"
+                            android:fontFamily="@font/sfprodisplayregular"
+                            android:text="@string/tour_price"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/fuelChargeLabelTextView"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/sfprodisplayregular"
+                            android:text="@string/fuelChargeLabel"
+                            android:textColor="#828796"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/fuelChargeTextView"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:textAlignment="textEnd"
+                            android:paddingEnd="12dp"
+                            android:fontFamily="@font/sfprodisplayregular"
+                            android:text="@string/fuelCharge"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/serviceChargeLabelTextView"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/sfprodisplayregular"
+                            android:text="@string/serviceChargeLabel"
+                            android:textColor="#828796"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/serviceChargeTextView"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:textAlignment="textEnd"
+                            android:paddingEnd="12dp"
+                            android:fontFamily="@font/sfprodisplayregular"
+                            android:text="@string/service_charge"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/amountLabelTextView"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="12dp"
+                            android:layout_marginTop="16dp"
+                            android:fontFamily="@font/sfprodisplayregular"
+                            android:text="@string/amountLabel"
+                            android:textColor="#828796"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/amountTextView"
+                            android:layout_width="180dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="16dp"
+                            android:textAlignment="textEnd"
+                            android:paddingEnd="12dp"
+                            android:fontFamily="@font/sfprodisplaybold"
+                            android:textColor="@color/icon_and_address_color"
+                            android:text="@string/amount"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/payButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/pay_text"
+                        android:backgroundTint="#0D72FF"
+                        android:layout_marginTop="24dp"
+                        app:cornerRadius="12dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:textSize="16sp"
+                        app:layout_constraintTop_toBottomOf="@id/notIncludedNecessary"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <Space
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp"
+                        app:layout_constraintTop_toBottomOf="@id/goToBookingButton"
+                        app:layout_constraintStart_toStartOf="parent"/>
+
+                </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 

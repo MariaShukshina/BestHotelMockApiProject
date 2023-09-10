@@ -57,4 +57,13 @@
     <string name="second_tourist">Второй турист</string>
     <string name="next_tourist">Следующий турист</string>
     <string name="add_tourist">Добавить туриста</string>
+    <string name="tour">Тур</string>
+    <string name="fuelCharge">%d \u20BD</string>
+    <string name="tour_price">%d \u20BD</string>
+    <string name="service_charge">%d \u20BD</string>
+    <string name="fuelChargeLabel">Топливный сбор</string>
+    <string name="serviceChargeLabel">Сервисный сбор</string>
+    <string name="amountLabel">К оплате</string>
+    <string name="amount">%d \u20BD</string>
+    <string name="pay_text">Оплатить %d \u20BD</string>
 </resources>

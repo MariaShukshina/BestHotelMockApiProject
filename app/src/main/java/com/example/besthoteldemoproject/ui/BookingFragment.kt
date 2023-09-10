@@ -176,6 +176,7 @@ class BookingFragment : Fragment() {
     private fun observeBookingData() {
         viewModel.bookingResponse.observe(viewLifecycleOwner) {
             if (it != null) {
+                val totalAmount = it.tour_price + it.fuel_charge + it.service_charge
                 binding.starNumberTextView.text = it.horating.toString()
                 binding.ratingTextView.text = it.rating_name
                 binding.hotelNameTextView.text = it.hotel_name
@@ -189,6 +190,12 @@ class BookingFragment : Fragment() {
                 binding.selectedHotelNameTextView.text = it.hotel_name
                 binding.selectedRoomTextView.text = it.room
                 binding.foodInfoTextView.text = it.nutrition
+                binding.tourPriceTextView.text = getString(R.string.tour_price, it.tour_price)
+                binding.fuelChargeTextView.text = getString(R.string.fuelCharge, it.fuel_charge)
+                binding.serviceChargeTextView.text =
+                    getString(R.string.service_charge, it.service_charge)
+                binding.amountTextView.text = getString(R.string.amount, totalAmount)
+                binding.payButton.text = getString(R.string.pay_text, totalAmount)
             }
         }
     }
