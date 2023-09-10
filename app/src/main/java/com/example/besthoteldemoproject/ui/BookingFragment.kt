@@ -11,12 +11,12 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ScrollView
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.besthoteldemoproject.R
 import com.example.besthoteldemoproject.databinding.FragmentBookingBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -26,6 +26,8 @@ class BookingFragment : Fragment() {
 
     private lateinit var binding: FragmentBookingBinding
     private val viewModel by viewModel<BookingFragmentViewModel>()
+    private val defaultTouristList = arrayListOf(Tourist(), Tourist())
+    private val adapter = TouristRecyclerViewAdapter()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,6 +45,8 @@ class BookingFragment : Fragment() {
         binding.bookingToolbar.setupWithNavController(navController, appBarConfiguration)
 
         observeBookingData()
+
+        setupRecyclerView()
 
         binding.etPhoneNumber.addTextChangedListener(object : TextWatcher {
             private var beforePhone: CharSequence = ""
@@ -114,7 +118,14 @@ class BookingFragment : Fragment() {
             }
         }
 
-        val scrollView = binding.bookingScrollView
+        binding.addTouristPlusIcon.setOnClickListener {
+            val nestedScrollView = binding.bookingScrollView
+            defaultTouristList.add(Tourist())
+            adapter.setList(defaultTouristList)
+            nestedScrollView.requestLayout()
+        }
+
+/*        val scrollView = binding.bookingScrollView
         var currentScrollY = 0
         binding.firstTouristInfoLayout.layoutTransition.enableTransitionType(
             LayoutTransition.CHANGING
@@ -146,31 +157,15 @@ class BookingFragment : Fragment() {
             scrollView.post {
                 scrollView.scrollTo(0, currentScrollY)
             }
-        }
+        }*/
 
-        binding.secondTouristArrowUp.setOnClickListener {
+    }
 
-            TransitionManager.beginDelayedTransition(binding.secondTouristInfoLayout, AutoTransition())
-
-            currentScrollY = scrollView.scrollY
-
-            binding.secondTouristInfoLayout.visibility = View.GONE
-            binding.secondTouristArrowDown.visibility = View.VISIBLE
-            binding.secondTouristArrowUp.visibility = View.GONE
-
-        }
-        binding.secondTouristArrowDown.setOnClickListener {
-
-            TransitionManager.beginDelayedTransition(binding.secondTouristInfoLayout, AutoTransition())
-
-            binding.secondTouristInfoLayout.visibility = View.VISIBLE
-            binding.secondTouristArrowDown.visibility = View.GONE
-            binding.secondTouristArrowUp.visibility = View.VISIBLE
-
-            scrollView.post {
-                scrollView.scrollTo(0, currentScrollY)
-            }
-        }
+    private fun setupRecyclerView() {
+        adapter.setList(defaultTouristList)
+        binding.touristRecyclerView.adapter = adapter
+        binding.touristRecyclerView.layoutManager = LinearLayoutManager(requireContext(),
+            LinearLayoutManager.VERTICAL, false)
     }
 
     private fun observeBookingData() {
