@@ -8,6 +8,7 @@ import android.util.Patterns
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -16,6 +17,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.besthoteldemoproject.R
 import com.example.besthoteldemoproject.databinding.FragmentBookingBinding
+import com.google.android.material.snackbar.Snackbar
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 
@@ -23,8 +25,8 @@ class BookingFragment : Fragment() {
 
     private lateinit var binding: FragmentBookingBinding
     private val viewModel by viewModel<BookingFragmentViewModel>()
-    private val defaultTouristList = arrayListOf(Tourist(), Tourist())
-    private val adapter = TouristRecyclerViewAdapter()
+    private val touristList = arrayListOf(Tourist(), Tourist())
+    private lateinit var adapter: TouristRecyclerViewAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,6 +42,10 @@ class BookingFragment : Fragment() {
         val navController = findNavController()
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         binding.bookingToolbar.setupWithNavController(navController, appBarConfiguration)
+
+        adapter = TouristRecyclerViewAdapter(requireContext(),
+            ::isValidInputString, ::isValidInputString, ::isValidInputString,
+            ::isValidInputString, ::isValidInputString, ::isValidInputString)
 
         observeBookingData()
 
@@ -117,49 +123,40 @@ class BookingFragment : Fragment() {
 
         binding.addTouristPlusIcon.setOnClickListener {
             val nestedScrollView = binding.bookingScrollView
-            defaultTouristList.add(Tourist())
-            adapter.setList(defaultTouristList)
+            touristList.add(Tourist())
+            adapter.setList(touristList)
             nestedScrollView.requestLayout()
         }
 
-/*        val scrollView = binding.bookingScrollView
-        var currentScrollY = 0
-        binding.firstTouristInfoLayout.layoutTransition.enableTransitionType(
-            LayoutTransition.CHANGING
-        )
+        binding.payButton.setOnClickListener {
+            adapter.setPayButtonClicked(true)
+            var result = true
+            for (i in 0 until adapter.itemCount) {
+                val item = binding.touristRecyclerView.getChildAt(i)
+                touristList[i].name = item.findViewById<EditText>(R.id.etNextName).text.toString()
+                touristList[i].surname = item.findViewById<EditText>(R.id.etNextSurname).text.toString()
+                touristList[i].citizenship = item.findViewById<EditText>(R.id.etCitizenship).text.toString()
+                touristList[i].birthDay = item.findViewById<EditText>(R.id.etNextBirthDay).text.toString()
+                touristList[i].passportNumber = item.findViewById<EditText>(R.id.etNextPassportNumber).text.toString()
+                touristList[i].passportValidTill = item.findViewById<EditText>(R.id.etNextPassportValidTill).text.toString()
 
-        binding.secondTouristInfoLayout.layoutTransition.enableTransitionType(
-            LayoutTransition.CHANGING
-        )
-
-        binding.firstTouristArrowUp.setOnClickListener {
-
-            TransitionManager.beginDelayedTransition(binding.firstTouristInfoLayout, AutoTransition())
-
-            currentScrollY = scrollView.scrollY
-
-            binding.firstTouristInfoLayout.visibility = View.GONE
-            binding.firstTouristArrowDown.visibility = View.VISIBLE
-            binding.firstTouristArrowUp.visibility = View.GONE
-
-        }
-        binding.firstTouristArrowDown.setOnClickListener {
-
-            TransitionManager.beginDelayedTransition(binding.firstTouristInfoLayout, AutoTransition())
-
-            binding.firstTouristInfoLayout.visibility = View.VISIBLE
-            binding.firstTouristArrowDown.visibility = View.GONE
-            binding.firstTouristArrowUp.visibility = View.VISIBLE
-
-            scrollView.post {
-                scrollView.scrollTo(0, currentScrollY)
+                if (result) {
+                result = isValidInputString(touristList[i].name) && isValidInputString(touristList[i].surname) &&
+                        isValidInputString(touristList[i].citizenship) && isValidInputString(touristList[i].passportNumber) &&
+                        isValidInputString(touristList[i].passportValidTill) && isValidInputString(touristList[i].birthDay)
+                }
             }
-        }*/
 
+            if (result) {
+                navController.navigate(R.id.action_bookingFragment_to_successFragment)
+            } else {
+                Snackbar.make(view, "Заполните все поля", Snackbar.LENGTH_SHORT).show()
+            }
+        }
     }
 
     private fun setupRecyclerView() {
-        adapter.setList(defaultTouristList)
+        adapter.setList(touristList)
         binding.touristRecyclerView.adapter = adapter
         binding.touristRecyclerView.layoutManager = LinearLayoutManager(requireContext(),
             LinearLayoutManager.VERTICAL, false)
@@ -194,5 +191,9 @@ class BookingFragment : Fragment() {
 
     private fun isValidEmail(target: CharSequence?): Boolean {
         return !target.isNullOrBlank() && Patterns.EMAIL_ADDRESS.matcher(target).matches()
+    }
+
+    private fun isValidInputString(value: String): Boolean {
+        return value.isNotEmpty()
     }
 }

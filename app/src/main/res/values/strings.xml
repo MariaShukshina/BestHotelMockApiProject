@@ -52,6 +52,7 @@
     <string name="tourist_name">Имя</string>
     <string name="tourist_surname">Фамилия</string>
     <string name="tourist_birthday">Дата рождения</string>
+    <string name="tourist_citizenship">Гражданство</string>
     <string name="tourist_passport_number">Номер загранпаспорта</string>
     <string name="tourist_passport_valid_till">Срок действия загранпаспорта</string>
     <string name="second_tourist">Второй турист</string>

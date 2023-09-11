@@ -71,6 +71,7 @@
                 app:layout_constraintTop_toBottomOf="@id/nextTouristLayout">
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/nextTouristNameInputLayout"
                     android:layout_height="wrap_content"
                     android:layout_width="match_parent"
                     android:layout_marginTop="16dp"
@@ -141,6 +142,33 @@
                         android:hint="@string/tourist_birthday"
                         android:fontFamily="@font/sfprodisplayregular"
                         android:inputType="date"
+                        android:background="#F6F6F9"
+                        android:textColorHint="#A9ABB7"
+                        android:textCursorDrawable="@null"
+                        android:textSize="16sp"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/nextTouristCitizenshipInputLayout"
+                    android:layout_height="wrap_content"
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="12dp"
+                    app:boxCornerRadiusBottomEnd="8dp"
+                    app:boxCornerRadiusBottomStart="8dp"
+                    app:boxCornerRadiusTopEnd="8dp"
+                    app:boxCornerRadiusTopStart="8dp"
+                    app:hintTextColor="#A9ABB7">
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/etCitizenship"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/tourist_citizenship"
+                        android:fontFamily="@font/sfprodisplayregular"
+                        android:inputType="text"
                         android:background="#F6F6F9"
                         android:textColorHint="#A9ABB7"
                         android:textCursorDrawable="@null"
