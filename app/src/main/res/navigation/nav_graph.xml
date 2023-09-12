@@ -32,5 +32,9 @@
     <fragment
         android:id="@+id/successFragment"
         android:name="com.example.besthoteldemoproject.ui.SuccessFragment"
-        tools:layout="@layout/fragment_success" />
+        tools:layout="@layout/fragment_success" >
+        <action
+            android:id="@+id/action_successFragment_to_hotelFragment"
+            app:destination="@id/hotelFragment" />
+    </fragment>
 </navigation>

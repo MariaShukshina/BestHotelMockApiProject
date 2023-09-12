@@ -67,4 +67,7 @@
     <string name="amountLabel">К оплате</string>
     <string name="amount">%d \u20BD</string>
     <string name="pay_text">Оплатить %d \u20BD</string>
+    <string name="order_paid">Заказ оплачен</string>
+    <string name="order_accepted">Ваш заказ принят в работу</string>
+    <string name="confirmation_text">Подтверждение заказа №%d может занять некоторое время (от 1 часа до суток).\nКак только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
 </resources>
