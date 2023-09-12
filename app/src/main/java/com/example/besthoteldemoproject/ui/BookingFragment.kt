@@ -43,9 +43,14 @@ class BookingFragment : Fragment() {
         val appBarConfiguration = AppBarConfiguration(navController.graph)
         binding.bookingToolbar.setupWithNavController(navController, appBarConfiguration)
 
-        adapter = TouristRecyclerViewAdapter(requireContext(),
+        val invalidColor = ContextCompat.getColor(requireContext(), R.color.email_invalid)
+        val validColor = ContextCompat.getColor(requireContext(), R.color.valid_input)
+
+        adapter = TouristRecyclerViewAdapter(
+            requireContext(),
             ::isValidInputString, ::isValidInputString, ::isValidInputString,
-            ::isValidInputString, ::isValidInputString, ::isValidInputString)
+            ::isValidInputString, ::isValidInputString, ::isValidInputString
+        )
 
         observeBookingData()
 
@@ -57,8 +62,10 @@ class BookingFragment : Fragment() {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                 beforePhone = s!!.filter { it.isDigit() }
             }
+
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
             }
+
             override fun afterTextChanged(s: Editable?) {
                 var result: String = getString(R.string.number_mask);
                 if (s.isNullOrEmpty()) {
@@ -110,18 +117,15 @@ class BookingFragment : Fragment() {
         })
 
         binding.emailEditText.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
-            val invalidColor = ContextCompat.getColor(requireContext(), R.color.email_invalid)
-            val validColor = ContextCompat.getColor(requireContext(), R.color.valid_input)
             if (!hasFocus) {
-                if (!isValidEmail(binding.emailEditText.text) && !TextUtils.isEmpty(binding.emailEditText.text)) {
-                    binding.emailEditText.setBackgroundColor(invalidColor)
-                } else {
-                    binding.emailEditText.setBackgroundColor(validColor)
-                }
+                changeEmailEditTextBackgroundColor(validColor, invalidColor)
             }
         }
 
         binding.addTouristPlusIcon.setOnClickListener {
+            for (i in 0 until adapter.itemCount) {
+                saveTourist(i)
+            }
             val nestedScrollView = binding.bookingScrollView
             touristList.add(Tourist())
             adapter.setList(touristList)
@@ -132,34 +136,66 @@ class BookingFragment : Fragment() {
             adapter.setPayButtonClicked(true)
             var result = true
             for (i in 0 until adapter.itemCount) {
-                val item = binding.touristRecyclerView.getChildAt(i)
-                touristList[i].name = item.findViewById<EditText>(R.id.etNextName).text.toString()
-                touristList[i].surname = item.findViewById<EditText>(R.id.etNextSurname).text.toString()
-                touristList[i].citizenship = item.findViewById<EditText>(R.id.etCitizenship).text.toString()
-                touristList[i].birthDay = item.findViewById<EditText>(R.id.etNextBirthDay).text.toString()
-                touristList[i].passportNumber = item.findViewById<EditText>(R.id.etNextPassportNumber).text.toString()
-                touristList[i].passportValidTill = item.findViewById<EditText>(R.id.etNextPassportValidTill).text.toString()
+                saveTourist(i)
 
                 if (result) {
-                result = isValidInputString(touristList[i].name) && isValidInputString(touristList[i].surname) &&
-                        isValidInputString(touristList[i].citizenship) && isValidInputString(touristList[i].passportNumber) &&
-                        isValidInputString(touristList[i].passportValidTill) && isValidInputString(touristList[i].birthDay)
+                    result = isValidInputString(touristList[i].name) && isValidInputString(touristList[i].surname)
+                                && isValidInputString(touristList[i].citizenship) && isValidInputString(
+                            touristList[i].passportNumber) && isValidInputString(touristList[i].passportValidTill)
+                                && isValidInputString(touristList[i].birthDay)
                 }
             }
 
-            if (result) {
+            if (result && isValidEmail(binding.emailEditText.text)
+                && !binding.etPhoneNumber.text?.contains("*")!!) {
                 navController.navigate(R.id.action_bookingFragment_to_successFragment)
             } else {
+                changeEmailEditTextBackgroundColor(validColor, invalidColor)
+                changePhoneEditTextBackgroundColor(validColor, invalidColor)
                 Snackbar.make(view, "Заполните все поля", Snackbar.LENGTH_SHORT).show()
             }
         }
     }
 
+    private fun changePhoneEditTextBackgroundColor(validColor: Int, invalidColor: Int) {
+        if (binding.etPhoneNumber.text?.contains("*")!!) {
+            binding.etPhoneNumber.setBackgroundColor(invalidColor)
+        } else {
+            binding.etPhoneNumber.setBackgroundColor(validColor)
+        }
+    }
+
+    private fun changeEmailEditTextBackgroundColor(validColor: Int, invalidColor: Int) {
+        if (!isValidEmail(binding.emailEditText.text)) {
+            binding.emailEditText.setBackgroundColor(invalidColor)
+        } else {
+            binding.emailEditText.setBackgroundColor(validColor)
+        }
+    }
+
+    private fun saveTourist(i: Int) {
+        val item = binding.touristRecyclerView.getChildAt(i)
+        touristList[i].name = item.findViewById<EditText>(R.id.etNextName).text.toString()
+        touristList[i].surname =
+            item.findViewById<EditText>(R.id.etNextSurname).text.toString()
+        touristList[i].citizenship =
+            item.findViewById<EditText>(R.id.etCitizenship).text.toString()
+        touristList[i].birthDay =
+            item.findViewById<EditText>(R.id.etNextBirthDay).text.toString()
+        touristList[i].passportNumber =
+            item.findViewById<EditText>(R.id.etNextPassportNumber).text.toString()
+        touristList[i].passportValidTill =
+            item.findViewById<EditText>(R.id.etNextPassportValidTill).text.toString()
+
+    }
+
     private fun setupRecyclerView() {
         adapter.setList(touristList)
         binding.touristRecyclerView.adapter = adapter
-        binding.touristRecyclerView.layoutManager = LinearLayoutManager(requireContext(),
-            LinearLayoutManager.VERTICAL, false)
+        binding.touristRecyclerView.layoutManager = LinearLayoutManager(
+            requireContext(),
+            LinearLayoutManager.VERTICAL, false
+        )
     }
 
     private fun observeBookingData() {
