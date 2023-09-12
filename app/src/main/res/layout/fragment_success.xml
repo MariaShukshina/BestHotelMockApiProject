@@ -81,8 +81,8 @@
     <com.google.android.material.button.MaterialButton
         android:id="@+id/successButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/go_to_booking"
+        android:layout_height="60dp"
+        android:text="@string/super_text"
         android:backgroundTint="#0D72FF"
         android:layout_marginTop="100dp"
         app:cornerRadius="12dp"

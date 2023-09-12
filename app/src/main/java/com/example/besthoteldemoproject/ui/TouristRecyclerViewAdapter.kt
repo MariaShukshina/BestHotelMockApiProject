@@ -12,7 +12,6 @@ import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
 import com.example.besthoteldemoproject.R
 import com.example.besthoteldemoproject.databinding.TouristRecyclerviewItemBinding
-import okhttp3.Interceptor.Companion.invoke
 
 
 class TouristRecyclerViewAdapter(
@@ -73,6 +72,43 @@ class TouristRecyclerViewAdapter(
             holder.citizenship.clearFocus()
             holder.passportNumber.clearFocus()
             holder.passportValid.clearFocus()
+        }
+
+        holder.nameEditText.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                changeColor(holder.nameEditText, nameValidator
+                    .invoke(holder.nameEditText.text.toString()))
+            }
+        }
+        holder.surnameEditText.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                changeColor(holder.surnameEditText, surnameValidator
+                    .invoke(holder.surnameEditText.text.toString()))
+            }
+        }
+        holder.birthday.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                changeColor(holder.birthday, birthDayValidator
+                    .invoke(holder.birthday.text.toString()))
+            }
+        }
+        holder.citizenship.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                changeColor(holder.citizenship, citizenshipValidator
+                    .invoke(holder.citizenship.text.toString()))
+            }
+        }
+        holder.passportNumber.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                changeColor(holder.passportNumber, passportNumberValidator
+                    .invoke(holder.passportNumber.text.toString()))
+            }
+        }
+        holder.passportValid.setOnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                changeColor(holder.passportValid, passportValidValidator
+                    .invoke(holder.passportValid.text.toString()))
+            }
         }
 
         holder.touristInfoLayout.layoutTransition.enableTransitionType(
