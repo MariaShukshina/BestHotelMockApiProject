@@ -2,7 +2,6 @@ package com.example.besthoteldemoproject.ui
 
 import android.os.Bundle
 import android.text.Editable
-import android.text.TextUtils
 import android.text.TextWatcher
 import android.util.Patterns
 import android.view.LayoutInflater
@@ -67,7 +66,7 @@ class BookingFragment : Fragment() {
             }
 
             override fun afterTextChanged(s: Editable?) {
-                var result: String = getString(R.string.number_mask);
+                var result: String = getString(R.string.number_mask)
                 if (s.isNullOrEmpty()) {
                     binding.etPhoneNumber.removeTextChangedListener(this)
                     binding.etPhoneNumber.setText(result)
@@ -94,19 +93,19 @@ class BookingFragment : Fragment() {
                         phoneNumber = if (phoneNumber.length > 1 && phoneNumber[1] == '9') {
                             phoneNumber.removeRange(0, 1)
                         } else {
-                            "9" + phoneNumber.removeRange(0, 1);
+                            "9" + phoneNumber.removeRange(0, 1)
                         }
                     }
                 }
                 if (phoneNumber.isNotEmpty()) {
-                    var i = 0;
-                    var x = 0;
+                    var i = 0
+                    var x = 0
                     while (x < phoneNumber.length && i < result.length) {
                         if (result[i] == '*') {
                             result = result.replaceFirst(result[i], phoneNumber[x])
-                            x += 1;
+                            x += 1
                         }
-                        i += 1;
+                        i += 1
                     }
                 }
                 binding.etPhoneNumber.removeTextChangedListener(this)
@@ -119,6 +118,12 @@ class BookingFragment : Fragment() {
         binding.emailEditText.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
             if (!hasFocus) {
                 changeEmailEditTextBackgroundColor(validColor, invalidColor)
+            }
+        }
+
+        binding.etPhoneNumber.onFocusChangeListener = View.OnFocusChangeListener { _, hasFocus ->
+            if (!hasFocus) {
+                changePhoneEditTextBackgroundColor(validColor, invalidColor)
             }
         }
 
