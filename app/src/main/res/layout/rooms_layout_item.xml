@@ -33,6 +33,7 @@
                     android:layout_width="380dp"
                     android:layout_height="250dp"
                     android:layout_gravity="center"
+                    android:background="@drawable/hotel_placeholder"
                     app:sliderAnimationDuration="600"
                     app:sliderIndicatorAnimationDuration="600"
                     app:sliderIndicatorGravity="center_horizontal|bottom"

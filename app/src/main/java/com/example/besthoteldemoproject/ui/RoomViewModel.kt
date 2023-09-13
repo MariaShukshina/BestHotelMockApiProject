@@ -12,7 +12,7 @@ import retrofit2.Response
 
 class RoomFragmentViewModel(private val repository: HotelApiRepository): ViewModel() {
 
-    private val _roomDataResponse = MutableLiveData<RoomResponse?>()
+    private val _roomDataResponse = MutableLiveData<RoomResponse?>(null)
     val roomDataResponse
         get() = _roomDataResponse
 
@@ -25,11 +25,15 @@ class RoomFragmentViewModel(private val repository: HotelApiRepository): ViewMod
             val call: Call<RoomResponse> = repository.getRoomData()
             call.enqueue(object : Callback<RoomResponse> {
                 override fun onResponse(call: Call<RoomResponse>, response: Response<RoomResponse>) {
-                    if (response.body() == null) {
+                    if(response.isSuccessful) {
+                        if (response.body() == null) {
+                            _roomDataResponse.postValue(null)
+                            return
+                        }
+                        _roomDataResponse.postValue(response.body())
+                    } else {
                         _roomDataResponse.postValue(null)
-                        return
                     }
-                    _roomDataResponse.postValue(response.body())
                 }
 
                 override fun onFailure(call: Call<RoomResponse>, t: Throwable) {

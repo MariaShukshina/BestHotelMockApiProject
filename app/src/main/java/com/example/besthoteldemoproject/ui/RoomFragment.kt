@@ -11,6 +11,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.besthoteldemoproject.R
+import com.example.besthoteldemoproject.data.retrofit.Room
 import com.example.besthoteldemoproject.databinding.FragmentRoomBinding
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -51,6 +52,9 @@ class RoomFragment : Fragment() {
         viewModel.roomDataResponse.observe(viewLifecycleOwner) {
             if (it != null) {
                 adapter.setRoomList(it.rooms)
+            } else {
+                adapter.setRoomList(listOf(Room(0, listOf(), "", listOf(), 0, ""),
+                    Room(1, listOf(), "", listOf(), 0, "")))
             }
         }
     }
