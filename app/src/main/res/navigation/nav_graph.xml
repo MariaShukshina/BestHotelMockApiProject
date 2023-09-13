@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/hotelFragment"
-        android:name="com.example.besthoteldemoproject.ui.HotelFragment"
+        android:name="com.example.besthoteldemoproject.presentation.HotelFragment"
         tools:layout="@layout/fragment_hotel" >
         <action
             android:id="@+id/action_hotelFragment_to_roomFragment"
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/roomFragment"
-        android:name="com.example.besthoteldemoproject.ui.RoomFragment"
+        android:name="com.example.besthoteldemoproject.presentation.RoomFragment"
         tools:layout="@layout/fragment_room" >
         <action
             android:id="@+id/action_roomFragment_to_bookingFragment"
@@ -23,7 +23,7 @@
     </fragment>
     <fragment
         android:id="@+id/bookingFragment"
-        android:name="com.example.besthoteldemoproject.ui.BookingFragment"
+        android:name="com.example.besthoteldemoproject.presentation.BookingFragment"
         tools:layout="@layout/fragment_booking" >
         <action
             android:id="@+id/action_bookingFragment_to_successFragment"
@@ -31,7 +31,7 @@
     </fragment>
     <fragment
         android:id="@+id/successFragment"
-        android:name="com.example.besthoteldemoproject.ui.SuccessFragment"
+        android:name="com.example.besthoteldemoproject.presentation.SuccessFragment"
         tools:layout="@layout/fragment_success" >
         <action
             android:id="@+id/action_successFragment_to_hotelFragment"

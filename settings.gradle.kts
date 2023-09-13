@@ -16,3 +16,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "BestHotelDemoProject"
 include(":app")
+include(":data")
+include(":domain")
+include(":retrofit")
