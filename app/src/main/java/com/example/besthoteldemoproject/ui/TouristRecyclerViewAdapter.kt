@@ -15,7 +15,7 @@ import com.example.besthoteldemoproject.databinding.TouristRecyclerviewItemBindi
 
 
 class TouristRecyclerViewAdapter(
-    context: Context,
+    private val context: Context,
     private val nameValidator: (String) -> Boolean,
     private val surnameValidator: (String) -> Boolean,
     private val birthDayValidator: (String) -> Boolean,
@@ -56,7 +56,7 @@ class TouristRecyclerViewAdapter(
         if (position in 0..9) {
             holder.touristNumber.text = touristNumbersMap[position]
         } else {
-            holder.touristNumber.text = "${position + 1}-й турист"
+            holder.touristNumber.text = context.getString(R.string.tourist_number, position + 1)
         }
             holder.nameEditText.setText(touristList[position].name)
             holder.surnameEditText.setText(touristList[position].surname)

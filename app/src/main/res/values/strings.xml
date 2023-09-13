@@ -71,4 +71,5 @@
     <string name="order_accepted">Ваш заказ принят в работу</string>
     <string name="confirmation_text">Подтверждение заказа №%d может занять некоторое время (от 1 часа до суток).\nКак только мы получим ответ от туроператора, вам на почту придет уведомление.</string>
     <string name="super_text">Супер!</string>
+    <string name="tourist_number">%d-й турист</string>
 </resources>
