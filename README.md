@@ -1,8 +1,8 @@
 # BestHotelDemoProject
 Hotel booking app with mock API. Built with Clean Architecture and multimodularity.
-![photo_5_2023-09-23_14-08-16](https://github.com/MariaShukshina/BestHotelDemoProject/assets/64134936/0ce4a8e4-f751-4599-935a-78488d1e1bdf)
-![photo_4_2023-09-23_14-08-16](https://github.com/MariaShukshina/BestHotelDemoProject/assets/64134936/4bb41167-8565-4667-b07d-a259dca9bef5)
-![photo_3_2023-09-23_14-08-16](https://github.com/MariaShukshina/BestHotelDemoProject/assets/64134936/95d711e9-d29b-4813-a895-53b152013afb)
-![photo_2_2023-09-23_14-08-16](https://github.com/MariaShukshina/BestHotelDemoProject/assets/64134936/1ab54eec-d23f-4632-906d-4dc9226199db)
-![photo_1_2023-09-23_14-08-16](https://github.com/MariaShukshina/BestHotelDemoProject/assets/64134936/12368489-c675-444b-b838-c33e1040064d)
-![photo_6_2023-09-23_14-08-16](https://github.com/MariaShukshina/BestHotelDemoProject/assets/64134936/e4a84218-4be5-446e-8621-0eec95b0133e)
+![photo_2_2023-09-23_14-08-16](https://github.com/MariaShukshina/BestHotelDemoProject/assets/64134936/70f0beaa-8bc5-4963-ab7e-1c187cbb6937)
+![photo_3_2023-09-23_14-08-16](https://github.com/MariaShukshina/BestHotelDemoProject/assets/64134936/6e2667bd-f841-4c4e-8ba6-ff2c1d537dbf)
+![photo_4_2023-09-23_14-08-16](https://github.com/MariaShukshina/BestHotelDemoProject/assets/64134936/ab463075-5b3c-43e9-b310-73991bb8098a)
+![photo_1_2023-09-23_14-08-16](https://github.com/MariaShukshina/BestHotelDemoProject/assets/64134936/e61b9a2c-88f3-494e-86de-2a72505bd9c4)
+![photo_5_2023-09-23_14-08-16](https://github.com/MariaShukshina/BestHotelDemoProject/assets/64134936/fbeb3fe6-6ef2-4681-9bd9-14c353670281)
+![photo_6_2023-09-23_14-08-16](https://github.com/MariaShukshina/BestHotelDemoProject/assets/64134936/8bef9d62-a9f4-49f9-8aff-74ae78fd9a19)
