@@ -57,10 +57,10 @@ class BookingFragment : Fragment() {
         setupRecyclerView()
 
         binding.etPhoneNumber.addTextChangedListener(object : TextWatcher {
-            private var beforePhone: CharSequence = ""
+            private var beforePhoneNumber: CharSequence = ""
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-                beforePhone = s!!.filter { it.isDigit() }
+                beforePhoneNumber = s!!.filter { it.isDigit() }
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
@@ -77,7 +77,7 @@ class BookingFragment : Fragment() {
                 }
                 var phoneNumber = s.filter { it.isDigit() }
                 if (s.length < result.length) {
-                    if (phoneNumber.length == beforePhone.length) {
+                    if (phoneNumber.length == beforePhoneNumber.length) {
                         phoneNumber = if (phoneNumber.length < 2) {
                             " "
                         } else {
