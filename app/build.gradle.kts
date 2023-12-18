@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.besthoteldemoproject"
+    namespace = "com.mshukshina.besthoteldemoproject"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.besthoteldemoproject"
+        applicationId = "com.mshukshina.besthoteldemoproject"
         minSdk = 24
         targetSdk = 33
         versionCode = 1
